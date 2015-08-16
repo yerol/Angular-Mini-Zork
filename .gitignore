@@ -1,0 +1,19 @@
+logs/*
+!.gitkeep
+node_modules/
+app/bower_components/
+
+test/coverage
+
+# Mac
+.DS_Store
+
+# intellij
+.idea
+*.iml
+
+# Windows image file caches
+Thumbs.db
+
+# Windows folder config file
+Desktop.ini
