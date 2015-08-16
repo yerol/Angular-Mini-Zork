@@ -1,0 +1,15 @@
+{
+	"name": "Angular-Mini-Zork",
+	"description": "Angular Js Mini Zork Game",
+	"version": "0.0.1",
+	"homepage": "https://bitbucket.org/yigiterol/angular-mini-zork",
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+		"angular": "^1.4.1",
+		"angular-route": "^1.4.1",
+		"angular-mocks": "^1.4.1",
+		"jquery": "^2.1.4",
+		"bootstrap": "^3.3.5"
+	}
+}

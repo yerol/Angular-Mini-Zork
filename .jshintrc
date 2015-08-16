@@ -1,0 +1,30 @@
+{
+	"globalstrict": true,
+	"bitwise": true,
+	"curly": true,
+	"eqeqeq": true,
+	"eqnull": true,
+	"forin": true,
+	"latedef": true,
+	"loopfunc": true,
+	"noarg": true,
+	"strict": true,
+	"undef": true,
+	"unused": true,
+	"browser": true,
+	"jquery": true,
+	"debug": true,
+	"scripturl": true,
+	"nonew": true,
+
+	"globals": {
+		"angular": false,
+		"describe": false,
+		"it": false,
+		"expect": false,
+		"beforeEach": false,
+		"afterEach": false,
+		"module": false,
+		"inject": false
+	}
+}

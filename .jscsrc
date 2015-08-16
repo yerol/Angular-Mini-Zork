@@ -1,0 +1,66 @@
+{
+	"disallowEmptyBlocks": true,
+	"disallowNewlineBeforeBlockStatements": true,
+	"disallowSpacesInsideArrayBrackets": true,
+	"disallowSpacesInsideParentheses": true,
+	"disallowQuotedKeysInObjects": true,
+	"disallowSpaceAfterObjectKeys": true,
+	"disallowSpaceAfterPrefixUnaryOperators": true,
+	"disallowSpaceBeforePostfixUnaryOperators": true,
+	"disallowSpaceBeforeBinaryOperators": [
+		","
+	],
+	"disallowMixedSpacesAndTabs": true,
+	"disallowTrailingWhitespace": true,
+	"disallowTrailingComma": true,
+	"disallowYodaConditions": true,
+	"disallowKeywords": ["with"],
+	"requireLineFeedAtFileEnd": true,
+	"requireSpaceBeforeBlockStatements": true,
+	"requireSpaceBeforeObjectValues": true,
+	"requireParenthesesAroundIIFE": true,
+	"requireSpacesInConditionalExpression": true,
+	"requireBlocksOnNewline": 1,
+	"requireCommaBeforeLineBreak": true,
+	"requireSpaceBeforeBinaryOperators": true,
+	"requireSpaceAfterBinaryOperators": true,
+	"requireCamelCaseOrUpperCaseIdentifiers": true,
+	"requireCapitalizedConstructors": true,
+	"requireDotNotation": true,
+	"requireCurlyBraces": [
+		"if",
+		"else",
+		"for",
+		"while",
+		"do",
+		"try",
+		"catch"
+	],
+	"requireSpaceAfterKeywords": [
+		"if",
+		"else",
+		"for",
+		"while",
+		"do",
+		"switch",
+		"case",
+		"return",
+		"try",
+		"catch",
+		"typeof",
+		"function"
+	],
+	"validateLineBreaks": "LF",
+	"validateIndentation": "\t",
+	"validateQuoteMarks": true,
+	"validateParameterSeparator": ", ",
+	"validateJSDoc": {
+		"checkParamNames": true,
+		"requireParamTypes": true
+	},
+	"excludeFiles": [
+		"app/bower_components/**",
+		"node/**",
+		"node_modules/**"
+	]
+}
