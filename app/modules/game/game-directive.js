@@ -29,6 +29,8 @@ angular.module('Modules.Game')
 					my.textarea.scrollTop(my.textarea[0].scrollHeight);
 				});
 
+				ctrl.initialize();
+
 				// Call controller's destroy event on scope.$destroy so we can clean up any resources used/created
 				scope.$on('$destroy', ctrl.onDestroy);
 			}

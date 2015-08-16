@@ -1,0 +1,51 @@
+{
+	"locations": {
+		"0": {
+			"title": "West of House",
+			"description": "This is an open field west of a white house, with a boarded front door.",
+			"prompt": "There is a small mailbox here. A rubber mat saying 'Welcome to Zork!' lies by the door.",
+			"actions": [
+				{
+					"command": "enter the house",
+					"nextLocation": 1
+				},
+				{
+					"command": "open the mailbox",
+					"prompt": "There is a small parcel in the mailbox."
+				}
+			]
+		},
+		"1": {
+			"title": "The Entrance Hall",
+			"description": "You are standing in a tall room",
+			"prompt": "A staircase leads up away from the room. A dusty old mirror is on the east facing wall.",
+			"actions": [
+				{
+					"command": "climb the stairs",
+					"nextLocation": 2
+				},
+				{
+					"command": "look at room",
+					"prompt": "Paintings from a long forgotten time adorn the walls and portray past members of the household. They appear to watch your every move."
+				},
+				{
+					"command": "look at me",
+					"prompt": "You turn east-side and look at the mirror to see yourself. You look a bit tired."
+				}
+			]
+		},
+		"2": {
+			"title": "The End",
+			"description": "Nothing here to see or do yet.",
+			"prompt": "The End.",
+			"actions": []
+		}
+	},
+	"commands": [
+		{
+			"command": "say {message}",
+			"prompt": "You say '{message}' to yourself.",
+			"argument": "{message}"
+		}
+	]
+}
