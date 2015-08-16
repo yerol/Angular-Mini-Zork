@@ -1,4 +1,4 @@
-// Creating the Game module and defining the Game directive
+// Defining the Game directive
 // which bridges the template and controller without depending on ng-controller (using controllerAs syntax)
 angular.module('Modules.Game')
 	.directive('game', ['$window', function ($window) {
@@ -17,18 +17,22 @@ angular.module('Modules.Game')
 					textarea : element.find('.game-console-textbox')
 				};
 
+				// Attach an event handler for input blur that sets the focus back to the input
 				my.input.on('blur', function() {
 					my.input.focus();
 				});
 
+				// Attach an event handler for window click that sets the focus back to the input
 				angular.element($window).on('click', function() {
 					my.input.focus();
 				});
 
+				// When the userInput changes, set the console scroll bar to the bottom
 				scope.$watch(function() { return ctrl.model.userInput; }, function() {
 					my.textarea.scrollTop(my.textarea[0].scrollHeight);
 				});
 
+				// Kick off the app
 				ctrl.initialize();
 
 				// Call controller's destroy event on scope.$destroy so we can clean up any resources used/created

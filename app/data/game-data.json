@@ -35,16 +35,16 @@
 			]
 		},
 		"2": {
-			"title": "The End",
-			"description": "Nothing here to see or do yet.",
+			"title": "Upstairs",
+			"description": "Nothing here to see or do yet. Thanks for playing :)",
 			"prompt": "The End.",
 			"actions": []
 		}
 	},
 	"commands": [
 		{
-			"command": "say {message}",
-			"prompt": "You say '{message}' to yourself.",
+			"command": "say",
+			"prompt": "You say '{message}'",
 			"argument": "{message}"
 		}
 	]

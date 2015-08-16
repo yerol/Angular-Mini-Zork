@@ -7,7 +7,7 @@
 			<span class="game-input-prompt">&gt;</span>
 			<span class="game-input-text" ng-bind="gameController.model.userInput"></span>
 			<span class="game-input-cursor">_</span>
-			<input type="text" class="game-input" ng-model="gameController.model.userInput" ng-keydown="gameController.executeInput($event)" autofocus>
+			<input type="text" maxlength="30" class="game-input" ng-model="gameController.model.userInput" ng-keydown="gameController.executeInput($event)" autofocus>
 		</div>
 	</div>
 </game>
