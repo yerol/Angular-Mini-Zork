@@ -1,4 +1,14 @@
 <game class="game-container">
-	<h1>Angular Js Mini Zork Game</h1>
-
+	<h1 class="game-title">Angular Js Mini Zork Game</h1>
+	<div class="game-frame">
+		<div class="game-console">
+			<textarea class="game-console-textbox" ng-model="gameController.model.consoleText" spellcheck="false" readonly></textarea>
+		</div>
+		<div class="game-input-container" ng-cloak>
+			<span class="game-input-prompt">&gt;</span>
+			<span class="game-input-text" ng-bind="gameController.model.userInput"></span>
+			<span class="game-input-cursor">_</span>
+			<input type="text" class="game-input" ng-model="gameController.model.userInput" ng-keydown="gameController.executeInput($event)" autofocus>
+		</div>
+	</div>
 </game>

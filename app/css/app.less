@@ -13,7 +13,9 @@
 // --------------------------------------------------
 // LOCAL VARIABLES
 // --------------------------------------------------
-
+@text-color: #33D011;
+@background-color: #000000;
+@border-color: #909090;
 // --------------------------------------------------
 // END LOCAL VARIABLES
 // --------------------------------------------------
@@ -31,7 +33,124 @@
 // --------------------------------------------------
 
 .game-container {
+	.game-title {
+		text-align: center;
+	}
 
+	.game-frame {
+		width: 500px;
+		background: @background-color;
+		padding: 0 0  25px 5px;
+		font-size: 14px;
+		font-family: Courier, fixed;
+		color: @text-color;
+		text-align: left;
+		border: 5px solid @border-color;
+		margin: 20px auto;
+		height: 350px;
+		position: relative;
+		font-weight: bold;
+
+		.game-console {
+			max-height: 310px;
+
+			.game-console-textbox {
+				width: 100%;
+				height: 310px;
+				border: none;
+				background-color: rgba(0, 0, 0, 0);
+				resize: none;
+				outline: none;
+				padding-right: 15px;
+			}
+		}
+
+		.game-input-container {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 22px;
+
+			.game-input-prompt {
+				width: 15px;
+				background-color: rgba(0, 0, 0, 0);
+				padding-left: 5px;
+				display: inline-block;
+				float: left;
+			}
+
+			.game-input-text {
+				background-color: rgba(0, 0, 0, 0);
+				display: inline-block;
+				float: left;
+				height: 22px;
+			}
+
+			.game-input-cursor {
+				background-color: rgba(0, 0, 0, 0);
+				color: @text-color;
+				animation: 1s blink step-end infinite;
+				float: left;
+				font-weight: bold;
+			}
+
+			.game-input {
+				width: 0;
+				height: 0;
+				opacity: 0;
+				border: none;
+				padding: 0;
+			}
+		}
+	}
+}
+
+@keyframes blink {
+	from, to {
+		color: @text-color;
+	}
+	50% {
+		color: transparent;
+	}
+}
+
+
+::-webkit-scrollbar {
+	background-color:#f1f1f1;
+	width: 10px;
+	height: 10px;
+}
+
+	/* This is the little button at the start and end of the scrollbar. */
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+	background-color: transparent;
+	display: block;
+	height: 0px;
+	width: 0px;
+}
+
+	/* This is the background which the scrollbar moves in. */
+::-webkit-scrollbar-track {
+	background-color:#f1f1f1;
+	border-left: 1px solid #cccccc;
+}
+
+	/* This will style the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+	background-color:#fff;
+	border: 1px solid #cccccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #a9a9a9;
+}
+
+::-webkit-scrollbar-button {
+	width: 0px;
+	height: 0px;
 }
 
 // --------------------------------------------------
