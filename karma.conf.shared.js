@@ -11,6 +11,7 @@ module.exports = function (config) {
 			'app/bower_components/angular-route/angular-route.min.js',
 			'app/bower_components/angular-resource/angular-resource.min.js',
 			'app/bower_components/angular-mocks/angular-mocks.js',
+			'app/bower_components/bind-polyfill/index.js',
 			'app/modules/**/*.html',
 			'app/js/app.js',
 			'app/modules/**/*.js',

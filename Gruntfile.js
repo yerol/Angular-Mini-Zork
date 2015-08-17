@@ -206,7 +206,9 @@ module.exports = function (grunt) {
 					"bootstrap/dist/css/bootstrap.min.css" : "bootstrap/dist/css/bootstrap.min.css",
 					"bootstrap/less/variables.less" : "bootstrap/less/variables.less",
 					"bootstrap/less/mixins" : "bootstrap/less/mixins/*.less",
-					"bootstrap/less/mixins.less" : "bootstrap/less/mixins.less"
+					"bootstrap/less/mixins.less" : "bootstrap/less/mixins.less",
+
+					"bind-polyfill/index.js" : "bind-polyfill/index.js"
 				}
 			}
 		},
