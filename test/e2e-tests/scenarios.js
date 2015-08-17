@@ -18,7 +18,20 @@ describe('Zork ', function () {
 		});
 
 		it('should render game module when user navigates to /', function () {
-			expect(element.all(by.css('[ng-view] .game-container h1')).first().getText()).toMatch(/Angular Js Mini Zork Game/);
+			expect(element(by.css('.game-console-textbox')).getAttribute('value')).toMatch(/Angular Mini ZORK/);
+		});
+	});
+
+	describe('when player enters a command', function () {
+
+		beforeEach(function () {
+			browser.get('index.html');
+
+			var input = element(by.css('.game-input')).sendKeys('say hello').sendKeys(protractor.Key.ENTER);
+		});
+
+		it('should display the command in the console', function () {
+			expect(element(by.css('.game-console-textbox')).getAttribute('value')).toMatch(/say hello/);
 		});
 	});
 });
