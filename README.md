@@ -22,7 +22,7 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 Clone the repository using [git][git]:
 
 ```
-cd /path/to/PriceComparison
+cd /path/to/source
 git init
 git remote add origin https://bitbucket.org/yigiterol/angular-mini-zork.git
 ```
