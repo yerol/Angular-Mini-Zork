@@ -3,9 +3,10 @@
 describe('Zork Game module', function () {
 
 	beforeEach(module('Zork'));
+	beforeEach(module('templates'));
 
 	describe('Game module directive ', function () {
-		var $compile, $rootScope, element, $httpBackend;
+		var $compile, $rootScope, element, $httpBackend, $templateCache, template;
 
 		var gameData = {
 			locations: {
@@ -59,20 +60,6 @@ describe('Zork Game module', function () {
 			]
 		};
 
-		var template = '<game class="game-container">' +
-						'<div class="game-frame">' +
-							'<div class="game-console">' +
-								'<textarea class="game-console-textbox" ng-model="gameController.model.consoleText" spellcheck="false" readonly></textarea>' +
-							'</div>' +
-							'<div class="game-input-container" ng-cloak>' +
-								'<span class="game-input-prompt">&gt;</span>' +
-								'<span class="game-input-text" ng-bind="gameController.model.userInput"></span>' +
-								'<span class="game-input-cursor">_</span>' +
-								'<input type="text" maxlength="30" class="game-input" ng-model="gameController.model.userInput" ng-keydown="gameController.executeInput($event)" autofocus>' +
-							'</div>' +
-						'</div>' +
-					'</game>';
-
 //		var triggerKeyDown = function (element, keyCode) {
 //			var e = angular.element.Event("keydown");
 //			e.which = keyCode;
@@ -81,10 +68,11 @@ describe('Zork Game module', function () {
 
 		// Store references to $rootScope, $compile and $controller
 		// so they are available to all tests in this describe block
-		beforeEach(inject(function (_$compile_, _$rootScope_) {
+		beforeEach(inject(function (_$compile_, _$rootScope_, _$templateCache_) {
 			// The injector unwraps the underscores (_) from around the parameter names when matching
 			$compile = _$compile_;
 			$rootScope = _$rootScope_;
+			$templateCache = _$templateCache_;
 		}));
 
 		beforeEach(inject(function ($injector) {
@@ -95,6 +83,7 @@ describe('Zork Game module', function () {
 		}));
 
 		beforeEach(function () {
+			template = $templateCache.get('modules/game/game.html');
 			// Compile a piece of HTML containing the directive
 			element = $compile(template)($rootScope);
 			// fire all the watches, so the scope expression {{1 + 1}} will be evaluated

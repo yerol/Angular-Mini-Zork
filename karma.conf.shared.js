@@ -34,7 +34,7 @@ module.exports = function (config) {
 
 		preprocessors: {
 			'app/!(bower_components)/**/*.js': ['coverage'],
-			'app/modules/**/*.html': 'html2js'
+			'app/modules/**/*.html': ['ng-html2js']
 		},
 
 		frameworks: [
@@ -44,7 +44,8 @@ module.exports = function (config) {
 		],
 
 		ngHtml2JsPreprocessor: {
-			stripPrefix: 'app/'
+			stripPrefix: 'app/',
+			moduleName: 'templates'
 		},
 
 		// enable / disable colors in the output (reporters and logs)
