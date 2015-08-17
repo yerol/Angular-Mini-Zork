@@ -12,23 +12,23 @@ angular.module('Modules.Game')
 				var my = {
 					// Cache the input element
 					// Set the initial  focus on the input to accept keyboard input
-					input : element.find('.game-input').focus(),
+					input: element.find('.game-input').focus(),
 					// Cache the console textarea
-					textarea : element.find('.game-console-textbox')
+					textarea: element.find('.game-console-textbox')
 				};
 
 				// Attach an event handler for input blur that sets the focus back to the input
-				my.input.on('blur', function() {
+				my.input.on('blur', function () {
 					my.input.focus();
 				});
 
 				// Attach an event handler for window click that sets the focus back to the input
-				angular.element($window).on('click', function() {
+				angular.element($window).on('click', function () {
 					my.input.focus();
 				});
 
 				// When the userInput changes, set the console scroll bar to the bottom
-				scope.$watch(function() { return ctrl.model.userInput; }, function() {
+				scope.$watch(function () { return ctrl.model.userInput; }, function () {
 					my.textarea.scrollTop(my.textarea[0].scrollHeight);
 				});
 

@@ -9,7 +9,7 @@ angular.module('Modules.Game')
 			 * @param {object} model - Game controller data model
 			 * @param {string} text - Text to be appended
 			 */
-			appendText : function(model, text) {
+			appendText: function (model, text) {
 				model.consoleText += '\n' + text;
 			},
 
@@ -17,7 +17,7 @@ angular.module('Modules.Game')
 			 * Helper method that validates game data
 			 * @param {object} model - Game controller data model
 			 */
-			validateGameData : function(model) {
+			validateGameData: function (model) {
 				return model && model.gameData && angular.isObject(model.gameData.locations);
 			},
 
@@ -26,12 +26,12 @@ angular.module('Modules.Game')
 			 * @param {object} model - Game controller data model
 			 * @param {number} locationId - Location to be moved to
 			 */
-			moveToLocation : function(model, locationId) {
-				if(locationId >= 0) {
+			moveToLocation: function (model, locationId) {
+				if (locationId >= 0) {
 					// Find the location by id
 					var location = model.gameData.locations[locationId];
 					// Validate it
-					if(angular.isObject(location)) {
+					if (angular.isObject(location)) {
 						// Set the current location to the new id
 						model.currentLocation = locationId;
 
@@ -50,10 +50,10 @@ angular.module('Modules.Game')
 			 * Helper method that displays the available actions to the player
 			 * @param {object} model - Game controller data model
 			 */
-			listActions : function(model) {
+			listActions: function (model) {
 				// Find the location by id and validate it
 				var location = model.gameData.locations[model.currentLocation];
-				if(angular.isObject(location) && angular.isArray(location.actions) && location.actions.length > 0) {
+				if (angular.isObject(location) && angular.isArray(location.actions) && location.actions.length > 0) {
 					// List the available actions in this location
 					context.appendText(model, 'Available actions:');
 
@@ -66,13 +66,13 @@ angular.module('Modules.Game')
 				}
 
 				// If there are any global actions, display them separately
-				if(model.gameData.commands.length > 0) {
+				if (model.gameData.commands.length > 0) {
 					context.appendText(model, '\nGlobal actions:');
 
 					for (var j = 0, ln = model.gameData.commands.length; j < ln; j++) {
 						var globalCommand = model.gameData.commands[j];
 
-						if(globalCommand.argument) {
+						if (globalCommand.argument) {
 							context.appendText(model, globalCommand.command + ' ' + globalCommand.argument);
 						}
 						else {
@@ -86,24 +86,24 @@ angular.module('Modules.Game')
 			 * Helper method that executes a player action
 			 * @param {object} model - Game controller data model
 			 */
-			takeAction : function(model) {
+			takeAction: function (model) {
 				// Find the location by id
 				var location = model.gameData.locations[model.currentLocation];
 				// Set the default prompt
 				var prompt = 'No available action.';
 				// Validate current location's actions
-				if(angular.isObject(location) && angular.isArray(location.actions) && location.actions.length > 0) {
+				if (angular.isObject(location) && angular.isArray(location.actions) && location.actions.length > 0) {
 					// Find the matching action in the current location's actions collection (if any)
 					for (var i = 0, len = location.actions.length; i < len; i++) {
-						if(location.actions[i].command === model.userInput.toLowerCase()) {
+						if (location.actions[i].command === model.userInput.toLowerCase()) {
 							// If it is a prompt, display it
-							if(location.actions[i].prompt) {
+							if (location.actions[i].prompt) {
 								prompt = location.actions[i].prompt;
 								break;
 							}
 							// If it is a location, then move the player
-							else if(location.actions[i].nextLocation) {
-								if(!context.moveToLocation(model, location.actions[i].nextLocation)) {
+							else if (location.actions[i].nextLocation) {
+								if (!context.moveToLocation(model, location.actions[i].nextLocation)) {
 									context.appendText(model, 'LOCATION NOT FOUND!');
 								}
 								return;
@@ -112,7 +112,7 @@ angular.module('Modules.Game')
 					}
 
 					// Action not found. See if it is a global action
-					if(prompt === 'No available action.') {
+					if (prompt === 'No available action.') {
 						// Split the words first
 						var userCommand = model.userInput.split(' ');
 
@@ -121,9 +121,9 @@ angular.module('Modules.Game')
 							var globalCommand = model.gameData.commands[j];
 							// TODO: Supports one word commands now. Improve parsing for multiple word commands later
 							// If the first user word matches a global command
-							if(globalCommand.command === userCommand[0].toLowerCase()) {
+							if (globalCommand.command === userCommand[0].toLowerCase()) {
 								// TODO: Only commands with arguments supported right now
-								if(globalCommand.argument) {
+								if (globalCommand.argument) {
 									// Remove the first command from user input. The rest is arguments
 									userCommand.shift();
 
@@ -148,11 +148,11 @@ angular.module('Modules.Game')
 			 * Helper method that appends the user command to the console and calls relevant execute method
 			 * @param {object} model - Game controller data model
 			 */
-			executeCommand : function(model) {
+			executeCommand: function (model) {
 				context.appendText(model, '> ' + model.userInput);
 
 				// If the user is requesting available actions list
-				if(model.userInput === '/?') {
+				if (model.userInput === '/?') {
 					context.listActions(model);
 				}
 				// otherwise take action

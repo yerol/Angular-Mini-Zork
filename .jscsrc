@@ -50,7 +50,6 @@
 		"typeof",
 		"function"
 	],
-	"validateLineBreaks": "LF",
 	"validateIndentation": "\t",
 	"validateQuoteMarks": true,
 	"validateParameterSeparator": ", ",

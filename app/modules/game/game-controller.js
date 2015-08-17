@@ -1,8 +1,9 @@
 // Creating the Game module and Main controller for the Game module
+
 angular.module('Modules.Game', [])
-	.controller('Modules.Game.Controller',
-		['Modules.Game.Service', 'Modules.Game.Factory',
-		 function (gameService, gameFactory) {
+	.controller('Modules.Game.Controller', [
+		'Modules.Game.Service', 'Modules.Game.Factory',
+		function (gameService, gameFactory) {
 
 		'use strict';
 
@@ -12,8 +13,8 @@ angular.module('Modules.Game', [])
 			 * Success handler for the game data GET call
 			 * @param {object} response - XHR response object
 			 */
-			handleResponse : function(response) {
-				if(response.status === 200) {
+			handleResponse: function (response) {
+				if (response.status === 200) {
 					// Cache the game data
 					this.model.gameData = response.data;
 
@@ -25,7 +26,7 @@ angular.module('Modules.Game', [])
 						gameFactory.moveToLocation(this.model, this.model.currentLocation);
 					}
 					else {
-						gameFactory.appendText(this.model, "ERROR VALIDATING GAME DATA!!");
+						gameFactory.appendText(this.model, 'ERROR VALIDATING GAME DATA!!');
 					}
 				}
 			},
@@ -33,35 +34,35 @@ angular.module('Modules.Game', [])
 			/**
 			 * Error handler for the game data GET call
 			 */
-			handleErrorResponse : function() {
-				gameFactory.appendText(this.model, "ERROR DOWNLOADING GAME DATA!!");
+			handleErrorResponse: function () {
+				gameFactory.appendText(this.model, 'ERROR DOWNLOADING GAME DATA!!');
 			}
 		};
 
-		 /**
+		/**
 		 * Game controller data model
 		 */
 		this.model = {
-			userInput : '',
-			consoleText : 'Angular Mini ZORK\n' +
-						  'Copyright (c) 2015 Yigit Erol. All rights reserved.\n' +
-						  'ZORK is a registered trademark of Infocom Inc.\n' +
-						  'Revision 1.\n' +
-						  '\n' +
-						  'Enter /? for available actions' +
-						  '\n' +
-						  'Let\'s Begin..\n',
-			currentLocation : 0,
-			gameData : null,
-			gameDataValidated : false
+			userInput: '',
+			consoleText: 'Angular Mini ZORK\n' +
+						'Copyright (c) 2015 Yigit Erol. All rights reserved.\n' +
+						'ZORK is a registered trademark of Infocom Inc.\n' +
+						'Revision 1.\n' +
+						'\n' +
+						'Enter /? for available actions' +
+						'\n' +
+						'Let\'s Begin..\n',
+			currentLocation: 0,
+			gameData: null,
+			gameDataValidated: false
 		};
 
 		/**
 		 * Method that handles player keyboard input
 		 * @param {object} $event - Keyboard event object
 		 */
-		this.executeInput = function($event) {
-			if(this.model.gameDataValidated) {
+		this.executeInput = function ($event) {
+			if (this.model.gameDataValidated) {
 				// Execute command on enter
 				if ($event.keyCode === 13 && this.model.userInput.length > 0) {
 					gameFactory.executeCommand(this.model);
@@ -82,7 +83,7 @@ angular.module('Modules.Game', [])
 		/**
 		 * Initialize method for the controller. This fetches the game data required for the game play
 		 */
-		this.initialize = function() {
+		this.initialize = function () {
 			gameService.fetchData().then(my.handleResponse.bind(this), my.handleErrorResponse.bind(this));
 		};
 

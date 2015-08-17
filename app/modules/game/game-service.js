@@ -5,14 +5,14 @@ angular.module('Modules.Game')
 
 		var my = {
 			// Path to game data json
-			dataUrl : 'data/game-data.json'
+			dataUrl: 'data/game-data.json'
 		};
 
 		return {
 			/**
 			 * Method that fetches game data
 			 */
-			fetchData : function() {
+			fetchData: function () {
 				return $http({
 					url: my.dataUrl,
 					method: 'GET'

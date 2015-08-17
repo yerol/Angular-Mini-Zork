@@ -63,6 +63,7 @@ html body .game-container .game-frame .game-input-container .game-input-text {
 html body .game-container .game-frame .game-input-container .game-input-cursor {
   background-color: rgba(0, 0, 0, 0);
   color: #33d011;
+  -webkit-animation: 1s blink step-end infinite;
   animation: 1s blink step-end infinite;
   float: left;
   font-weight: bold;
@@ -75,6 +76,15 @@ html body .game-container .game-frame .game-input-container .game-input {
   padding: 0;
 }
 /* blinking cursor */
+@-webkit-keyframes blink {
+  from,
+  to {
+    color: #33d011;
+  }
+  50% {
+    color: transparent;
+  }
+}
 @keyframes blink {
   from,
   to {
